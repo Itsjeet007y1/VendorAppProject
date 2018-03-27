@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ 	 http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean name="LocExcelView" class="com.app.controller.view.LocationExcelView"/>
+	<bean name="LocPdfView" class="com.app.controller.view.LocationPdfView"/>
+	<bean name="CustExcelView" class="com.app.controller.view.CustomerExcelView"/>
+	<bean name="CustPdfView" class="com.app.controller.view.CustomerPdfView"/>
+	<bean name="VenExcelView" class="com.app.controller.view.VendorExcelView"/>
+	<bean name="VenPdfView" class="com.app.controller.view.VendorPdfView"/>
+	<bean name="ItmExcelView" class="com.app.controller.view.ItemExcelView"/>
+	<bean name="ItmPdfView" class="com.app.controller.view.ItemPdfView"/>
+	<bean name="OrderExcelView" class="com.app.controller.view.OrderExcelView"/>
+	<bean name="OrderPdfView" class="com.app.controller.view.OrderPdfView"/>
+</beans>

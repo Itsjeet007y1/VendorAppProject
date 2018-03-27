@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/vendor-servlet.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Front Controller for Integration Layer -->
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Front Controller for Presentation Layer -->
+	<servlet>
+		<servlet-name>vendor</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>vendor</servlet-name>
+		<url-pattern>/mvc/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Filter for Login security like url attack and back button request -->
+	<filter>
+		<filter-name>abc</filter-name>
+		<filter-class>com.app.filter.LoginCheckFilter</filter-class>
+		<init-param>
+			<param-name>noCheckURI</param-name>
+			<param-value>/VendorApp/mvc/login,/VendorApp/mvc/regUser,/VendorApp/mvc/saveUser,/VendorApp/mvc/loginCheck</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>abc</filter-name>
+		<url-pattern>/mvc/*</url-pattern>
+	</filter-mapping>
+</web-app>
